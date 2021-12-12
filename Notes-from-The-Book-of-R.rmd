@@ -1,0 +1,95 @@
+---
+# This section between three dashes is the document metadata
+
+title: "Notes and Exercises from"
+subtitle: "The Book of R, by Tilman M. Davies"
+date: "12/12/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Chapter 1
+
+###How to check and assign working directory
+###Environment variables
+
+```{r}
+# What is my working directory?
+getwd()
+
+# Let's pull environment username variable
+Sys.getenv("USERNAME")
+
+# Then we'll define the new working directory
+# Note that R uses forward slashes, not back slashes.
+paste("C:/Users/",Sys.getenv("USERNAME"),"/Desktop/R Working",sep="")
+
+# Then set it
+setwd(paste("C:/Users/",Sys.getenv("USERNAME"),"/Desktop/R Working",sep=""))
+
+```
+
+### Packages
+```{r}
+# Generally I use the drop-down menu to download packages.
+# You can also use R code.
+
+install.packages("Rtools")
+#install.packages("tidyverse")
+#update.packages()
+
+```
+
+## Chapter 2
+
+## Chapter 3
+
+## Chapter 4
+
+## Chapter 5
+
+## Chapter 6
+
+## Chapter 7
+
+## Chapter 8
+
+## Chapter 9
+
+## Chapter 10
+
+## Chapter 11
+
+## Chapter 12
+
+## Chapter 13
+
+## Chapter 14
+
+## Chapter 15
+
+## Chapter 16
+
+## Chapter 17
+
+## Chapter 18
+
+## Chapter 19
+
+## Chapter 20
+
+## Chapter 21
+
+## Chapter 22
+
+## Chapter 23
+
+## Chapter 24
+
+## Chapter 25
+
+## Chapter 26
