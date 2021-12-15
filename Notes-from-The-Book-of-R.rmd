@@ -38,13 +38,272 @@ setwd(paste("C:/Users/",Sys.getenv("USERNAME"),"/Desktop/R Working",sep=""))
 # Generally I use the drop-down menu to download packages.
 # You can also use R code.
 
-install.packages("Rtools")
+# Some packages may require R Tools, which is available here:
+# https://cran.r-project.org/bin/windows/Rtools/rtools40.html
 #install.packages("tidyverse")
-#update.packages()
+update.packages()
+
+```
+
+### Help
+# We can look up the help info for a function with ?.
+# We can search the help for a keyword with ??
+```{r}
+
+?mean
+# ??mean
+
 
 ```
 
 ## Chapter 2
+
+### Arithmetic
+
+### Exercise 2.1
+```{r}
+
+# a
+((6*2.3)+42)/(3^(4.2-3.62))
+
+# b
+(-4)^2 + 2
+
+# c
+ex21.c <- c(25.2,15,16.44,15.3,18.6)
+ex21.c <- ex21.c/2
+sqrt (x=ex21.c)
+
+# d
+log(x=0.3)
+
+# e
+exp(log(x=0.3))
+
+# f
+-0.00000000423546322
+    
+
+```
+
+### Assigning Objects
+# You can use either <- or = to assign a value to an object
+
+### Exercise 2.2
+# a
+x <- 3^2 * 4^(1/8)
+
+# b
+x <- x/2.33
+
+# c
+x2 <- (-8.2)*(10^(-15))
+
+# d
+x * x2
+
+### Vectors, Sequence, Repetition
+# We define a vector with the c function.
+# The arguments can be numbers, or formulas, or even vectors.
+
+
+```{r}
+# Vectors
+v1 <- c(12,14,2021)
+v1
+v1b <- c(v1, v1)
+v1b
+v2 <- 1:10
+v2
+
+# Sequences
+v3 <- seq(from=10, to=100,by=10)
+v3
+v4 <- seq(from=0, to=100,length.out=5)
+v4
+v3b <- seq(from=100, to=10,by=-10)
+v3b
+v4b <- seq(from=100, to=0,length.out=5)
+v4b
+
+# Repetition
+v5 <- rep(x=10,times=3)
+v5
+v6 <- rep(x=v1, times=3)
+v6
+v7 <- rep(x=v1, times=3, each=2)
+v7
+
+# Sort
+v7s1 <- sort(v7, decreasing=TRUE)
+v7s1
+v7s2 <- sort(v7, decreasing=FALSE)
+v7s2
+
+
+#Length
+length(x=v7s1)
+
+```
+
+#Let's clear variables
+```{r}
+rm(list=ls()) 
+```
+
+### Exercise 2.3
+```{r}
+# a
+x213a <- seq(from=5, to=-11, by=-0.3)
+x213a
+
+# b
+x213b <- sort(x213a,decreasing=FALSE)
+x213b
+
+# c
+x213c1 <- c(-1,3,-5,7,-9)
+x213c2 <- rep(x213c1, times=2, each=10)
+x213c2
+
+# d
+x213d <- c(seq(from=6, to=12, b=1),rep(5.3,times=3),-3,seq(from=102,to=length(x213c2),length.out=9 ))
+x213d
+
+# e
+x213e <- length(x213d)
+x213e
+```
+
+### Subsets
+
+```{r}
+x <- c(5,6,7,8,9,10,11,12)
+
+# We can pull the vector
+x
+
+# Or the second element
+x[2]
+
+# Or the vector, without the second element
+x[-2]
+
+
+#To identify the second-to-last element, we find the length of the vector
+x[length(x=x)]
+
+# then we just subtract one:
+x[length(x=x)-1]
+
+# We can remove it as follows:
+x[-(length(x=x)-1)]
+
+# Let's create an index of items in vector x
+
+x_index <- seq(from=1,to=length(x),by=1)
+x_index2 <- -x_index
+
+x_index
+x_index2
+
+# We can feed this back to pull the original vector
+x[x_index]
+
+# Or an empty set, after removing all items
+x[x_index2]
+
+# We can pull every other item
+
+x_index <- seq(from=1,to=length(x),by=2)
+x_index
+x[x_index]
+
+# Or remove every other item, for the same result
+x_index2 <- -seq(from=2,to=length(x),by=2)
+x_index2
+x[x_index2]
+
+
+```
+
+### Exercise 2.4
+```{r}
+# a
+
+x214a <- c(seq(from=3,to=6,length.out=5),rep(c(2,-5.1,-33),times=1),(7/42)+2)
+x214a
+
+# b
+x214b <- c(x214a[1],x214a[length(x214a)])
+x214b
+
+# c
+x214c <- c(x214a[-1],x214a[-length(x214a)])
+x214c
+
+# d
+x214d <- c(x214b[1],x214c,x214b[2])
+x214d
+
+#e
+x214a <- sort(x214a,decreasing=FALSE)
+x214e <- x214a
+
+#f
+x214f <- x214e[length(x214e):1]
+x214f
+sort(x214e,decreasing=TRUE)
+
+#g
+x214g <- c(rep(x214c[3],times=3),rep(x214c[6],times=4),rep(x214c[length(x214c)],times=1)   )
+x214g
+
+#h
+x214h <- x214e
+length(x214h)
+x214h[c(1, 5:7,9)]
+99:95
+x214h[c(1, 5:7,length(x214h))] <- 99:95
+x214h
+
+```
+
+### 
+# When you perform an operation on two vectors with different lengths, r repeats the shorter one.
+```{r}
+x <- c(1,2,3,4,5,6,7,8)
+x * c(1,0)
+
+
+```
+
+### Exercise 2.5
+
+```{r}
+# a
+v215a1 <- c(2,0.5,1,2,0.5,1,2,0.5,1)
+v215a2 <- c(1,2,3)
+v215a1[v215a2]
+
+# b
+
+#     C = (5/9)(F - 32)
+v215b1 <- c(45,77,20,19,101,120,212)
+v215b2 <- (5/9)*(v215b1 - 32)
+
+# c
+v215c1 <- c(2,4,6)
+v215c2 <- c(1,2)
+
+# Produce 2,4,6,4,8,12
+rep(v215c1,times=2)*rep(v215c2,each=3)
+
+# d
+
+
+
+```
 
 ## Chapter 3
 
